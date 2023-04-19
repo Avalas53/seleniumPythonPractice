@@ -18,6 +18,9 @@ class MyTestCase(unittest.TestCase):
         petgomb = meghajto.find_element(By.ID, "menu")
         petgomb.click()
         time.sleep(2)
+        addview = meghajto.find_element(By.ID, "menu__add-view")
+        addview.click()
+        time.sleep(2)
 
     def tearDown(self):
         self.meghajto.close()
