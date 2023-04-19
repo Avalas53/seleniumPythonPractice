@@ -1,17 +1,26 @@
 import unittest
 import time
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
 
 
 class MyTestCase(unittest.TestCase):
 
     def setUp(self):
         self.meghajto = webdriver.Chrome()
-        self.meghajto.maximize_window()
 
     def test_something(self):
-        self.meghajto.get("https://training.testifi.io/pets")
-        time.sleep(3)
+        meghajto = self.meghajto
+        meghajto.maximize_window()
+        meghajto.get("https://training.testifi.io/pets")
+        time.sleep(2)
+        petgomb = meghajto.find_element(By.ID, "menu")
+        petgomb.click()
+        time.sleep(2)
+
+    def tearDown(self):
+        self.meghajto.close()
 
 
 if __name__ == '__main__':
